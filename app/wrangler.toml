@@ -1,0 +1,31 @@
+name = "otter-helpcenter"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+
+# 공개 사이트는 /help/ 접두어로 서비스합니다.
+# 나중에 회사 Cloudflare 계정에서 아래 route만 추가하면 도메인이 연결됩니다.
+#   routes = [{ pattern = "www.tryotter.co.kr/help/*", zone_name = "tryotter.co.kr" }]
+
+[vars]
+BASE_PATH = "/help"
+# 도메인 연결 전까지 검색엔진 색인을 막습니다. 오픈 시 "false"로 바꿉니다.
+NOINDEX = "true"
+# 사내 검토용. 켜면 초안도 보이고 "초안" 배지가 붙습니다. 오픈 시 "false".
+PREVIEW_MODE = "true"
+SITE_ORIGIN = ""
+# ADMIN_PASSWORD / SESSION_SECRET / API_TOKEN 은 시크릿으로 관리합니다.
+#   wrangler secret put ADMIN_PASSWORD
+# 로컬 개발용 값은 .dev.vars 에 둡니다 (git 에 올리지 않습니다).
+
+[[d1_databases]]
+binding = "DB"
+database_name = "otter-helpcenter"
+database_id = "REPLACE_ME"   # wrangler d1 create 후 출력된 id 를 넣으세요 (HANDOFF.md 4장)
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "otter-helpcenter-media"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"

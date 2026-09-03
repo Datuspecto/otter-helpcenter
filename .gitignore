@@ -1,0 +1,23 @@
+# 의존성
+node_modules/
+
+# Cloudflare 로컬 상태 (로컬 D1·R2 데이터)
+.wrangler/
+.dev.vars
+.seed.sql
+
+# 빌드 산출물 (admin-src → app/public/admin)
+app/public/admin/
+
+# 미리보기 빌드 산출물 (파이썬 정적 렌더러)
+preview/site/
+
+# 임시
+.DS_Store
+
+
+# 보관용 프로토타입의 빌드 산출물
+_archive/preview/site/
+_archive/editor-proto/dist/
+_archive/editor-proto/.revisions/
+_archive/editor-proto/uploads/
